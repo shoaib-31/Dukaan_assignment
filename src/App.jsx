@@ -7,7 +7,7 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/payouts" element={<Payouts />} />
+        <Route path="/" element={<Payouts />} />
       </Routes>
     </Router>
   );
