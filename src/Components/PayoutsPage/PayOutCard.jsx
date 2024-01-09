@@ -42,6 +42,7 @@ const Main = styled.div`
   border-radius: 0.5rem;
   height: fit-content;
   min-width: 350px;
+  box-shadow: 0 2px 6px #1A181E0A;
 `;
 const Top = styled.div`
   padding: 1.25rem;
