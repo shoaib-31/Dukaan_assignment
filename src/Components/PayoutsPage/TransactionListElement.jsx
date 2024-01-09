@@ -1,23 +1,57 @@
 import styled from "styled-components";
-
-const TransactionListElement = () => {
+import date from "date-and-time";
+const convertMongoDate = (mongoDate) => {
+  const cdate = new window.Date(mongoDate);
+  const now = new window.Date();
+  const nowDay = date.format(now, "DD");
+  const nowMonth = date.format(now, "MM");
+  const nowYear = date.format(now, "YYYY");
+  const cdateDay = date.format(cdate, "DD");
+  const cdateMonth = date.format(cdate, "MM");
+  const cdateYear = date.format(cdate, "YYYY");
+  if (nowDay == cdateDay && nowMonth == cdateMonth && nowYear == cdateYear) {
+    return "Today " + date.format(cdate, "hh:mm A");
+  }
+  if (
+    Number(nowDay) - Number(cdateDay) == 1 &&
+    nowMonth == cdateMonth &&
+    nowYear == cdateYear
+  ) {
+    return "Yesterday " + date.format(cdate, "hh:mm A");
+  }
+  return date.format(cdate, "DD MMM hh:mm A");
+};
+const TransactionListElement = ({
+  orderID,
+  status,
+  transactionID,
+  date,
+  orderAmount,
+}) => {
+  const formattedDate = convertMongoDate(date);
   return (
     <Main>
-      <OrderID>&#x23;281209</OrderID>
+      <OrderID>&#x23;{orderID}</OrderID>
       <Status>
         <div
           style={{
             width: "10px",
             height: "10px",
             borderRadius: "50%",
-            backgroundColor: "#17B31B",
+            backgroundColor: `${
+              status == "Successful"
+                ? "#17B31B"
+                : status == "Pending"
+                ? "#999999"
+                : "#FF0000"
+            }`,
           }}
         ></div>
-        Successful
+        {status}
       </Status>
-      <TransactionID>131634495747</TransactionID>
-      <RefundDate>Today, 08:45PM</RefundDate>
-      <OrderAmount>₹1,125.00</OrderAmount>
+      <TransactionID>{transactionID}</TransactionID>
+      <Date>{formattedDate}</Date>
+      <OrderAmount>{orderAmount}</OrderAmount>
     </Main>
   );
 };
@@ -43,7 +77,7 @@ const Status = styled.div`
 const TransactionID = styled.div`
   color: #4d4d4d;
 `;
-const RefundDate = styled.div`
+const Date = styled.div`
   color: #4d4d4d;
 `;
 const OrderAmount = styled.div`

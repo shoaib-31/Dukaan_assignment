@@ -4,8 +4,9 @@ import Select from "react-select";
 import { useState } from "react";
 import PayOutCard from "../Components/PayoutsPage/PayOutCard";
 import Transactions from "../Components/PayoutsPage/Transactions";
+import { Payouts, Refunds } from "../userInfo";
 
-const Payouts = () => {
+const PayoutsPage = () => {
   const DropdownOptions = [
     { value: "This Month", label: "This Month" },
     { value: "This Week", label: "This Week" },
@@ -30,7 +31,7 @@ const Payouts = () => {
             defaultValue={DropdownOptions[0]}
           />
         </Section>
-        <Section>
+        <Section style={{ flexWrap: "wrap" }}>
           <PayOutCard
             name="Next Payout"
             amount="2,312.23"
@@ -65,29 +66,48 @@ const Payouts = () => {
             onClick={() => setTransactionType("Payouts")}
             selected={transactionType == "Payouts"}
           >
-            Payouts &#40;22&#41;
+            Payouts &#40;{Payouts.length}&#41;
           </TransactionType>
           <TransactionType
             onClick={() => setTransactionType("Refunds")}
             selected={transactionType == "Refunds"}
           >
-            Refunds &#40;6&#41;
+            Refunds &#40;{Refunds.length}&#41;
           </TransactionType>
         </Section>
-        <Transactions />
+        <Transactions time={time} transactionType={transactionType} />
       </Content>
     </Container>
   );
 };
 
-export default Payouts;
+export default PayoutsPage;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
   box-sizing: border-box;
   background-color: #fafafa;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #333;
+  }
 `;
+
 const Content = styled.div`
   padding: 2rem;
   display: flex;

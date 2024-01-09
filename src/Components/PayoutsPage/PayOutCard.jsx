@@ -12,7 +12,7 @@ const PayOutCard = ({ name, amount, background, nextDate, orders }) => {
           {name} &nbsp;
           <GoQuestion />
         </Section>
-        <Section style={{ justifyContent: "space-between" }}>
+        <Section style={{ justifyContent: "space-between", gap: "1rem" }}>
           <span style={{ fontSize: "2rem", fontWeight: "500" }}>₹{amount}</span>
           {orders && (
             <Orders background={background}>
@@ -41,6 +41,7 @@ const Main = styled.div`
   color: ${(props) => (props.background == "white" ? "black" : "white")};
   border-radius: 0.5rem;
   height: fit-content;
+  min-width: 350px;
 `;
 const Top = styled.div`
   padding: 1.25rem;
