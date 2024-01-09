@@ -4,7 +4,7 @@
 
 2. **Optimized Data Fetching**: All necessary data is fetched in a single request, enhancing page optimization. Sorting, searching, and filtering logic is handled at the frontend, resulting in superior performance compared to making multiple requests.
 
-3. **Debounced Search**: Searching is optimized through the implementation of debouncing, improving the user experience by reducing unnecessary API calls.
+3. **Debounced Search**: Searching is optimized through the implementation of debouncing, improving the user experience.
 
 4. **Code Structure**: The code is well-structured, promoting readability and maintainability for future development and collaboration.
 
