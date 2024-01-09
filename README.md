@@ -1,4 +1,4 @@
-## Advantages of the Dynamic Page
+## Why is it better than others?
 
 1. **Dynamic Page Generation**: The page is dynamically generated using data from the `userInfo.jsx` file. This enables direct use, requiring only data fetching from the database.
 
