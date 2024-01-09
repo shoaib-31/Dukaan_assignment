@@ -1,8 +1,17 @@
-# React + Vite
+## Advantages of the Dynamic Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. **Dynamic Page Generation**: The page is dynamically generated using data from the `userInfo.jsx` file. This enables direct use, requiring only data fetching from the database.
 
-Currently, two official plugins are available:
+2. **Optimized Data Fetching**: All necessary data is fetched in a single request, enhancing page optimization. Sorting, searching, and filtering logic is handled at the frontend, resulting in superior performance compared to making multiple requests.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+3. **Debounced Search**: Searching is optimized through the implementation of debouncing, improving the user experience by reducing unnecessary API calls.
+
+4. **Code Structure**: The code is well-structured, promoting readability and maintainability for future development and collaboration.
+
+5. **Functional Navbar**: The navbar functionality extends to different tabs, providing a seamless navigation experience for users.
+
+6. **Downloadable PDF Feature**: Users have the ability to download the displayed data as a PDF, offering added convenience and versatility.
+
+7. **Deployed**: This has deployed on Vercel. [<ins>**View Here**<ins>](https://dukaan-assignment-552rxwwnw-shoaib-31.vercel.app)
+
+These enhancements collectively contribute to a more efficient and user-friendly web application.
