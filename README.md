@@ -12,6 +12,6 @@
 
 6. **Downloadable PDF Feature**: Users have the ability to download the displayed data as a PDF, offering added convenience and versatility.
 
-7. **Deployed**: This has deployed on Vercel. [<ins>**View Here**<ins>](https://dukaan-assignment-552rxwwnw-shoaib-31.vercel.app) and go to Payouts tab.
+7. **Deployed**: This has deployed on Vercel. [<ins>**View Here**<ins>](https://dukaan-assignment-552rxwwnw-shoaib-31.vercel.app){:target="_blank"} and go to Payouts tab.
 
 These enhancements collectively contribute to a more efficient and user-friendly web application.
