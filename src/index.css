@@ -1,67 +1,3 @@
-@font-face {
-  font-family: "Galano Grotesque";
-  src: local("GalanoGrotesqueAltThin"),
-    url("./fonts/GalanoGrotesqueAltThin.otf") format("opentype");
-  font-weight: 100;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Galano Grotesque";
-  src: local("GalanoGrotesqueAltExtraLight"),
-    url("./fonts/GalanoGrotesqueAltExtraLight.otf") format("opentype");
-  font-weight: 200;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Galano Grotesque";
-  src: local("GalanoGrotesqueAltLight"),
-    url("./fonts/GalanoGrotesqueAltLight.otf") format("opentype");
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Galano Grotesque";
-  src: local("GalanoGrotesqueAltRegular"),
-    url("./fonts/GalanoGrotesqueAltRegular.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Galano Grotesque";
-  src: local("GalanoGrotesqueAltMedium"),
-    url("./fonts/GalanoGrotesqueAltMedium.otf") format("opentype");
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Galano Grotesque";
-  src: local("GalanoGrotesqueAltSemiBold"),
-    url("./fonts/GalanoGrotesqueAltSemiBold.otf") format("opentype");
-  font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Galano Grotesque";
-  src: local("GalanoGrotesqueAltBold"),
-    url("./fonts/GalanoGrotesqueAltBold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Galano Grotesque";
-  src: local("GalanoGrotesqueAltExtraBold"),
-    url("./fonts/GalanoGrotesqueAltExtraBold.otf") format("opentype");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Galano Grotesque";
-  src: local("GalanoGrotesqueAltHeavy"),
-    url("./fonts/GalanoGrotesqueAltHeavy.otf") format("opentype");
-  font-weight: 900;
-  font-style: normal;
-}
 * {
   margin: 0%;
   padding: 0%;
@@ -69,7 +5,8 @@
 body {
   height: 100vh;
   width: 100vw;
-  font-family: "Galano Grotesque";
+  font-family: Inter, sans-serif;
+  font-feature-settings: "liga" 1, "calt" 1;
 }
 #root {
   height: 100%;
