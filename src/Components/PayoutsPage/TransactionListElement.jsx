@@ -1,26 +1,5 @@
 import styled from "styled-components";
-import date from "date-and-time";
-const convertMongoDate = (mongoDate) => {
-  const cdate = new window.Date(mongoDate);
-  const now = new window.Date();
-  const nowDay = date.format(now, "DD");
-  const nowMonth = date.format(now, "MM");
-  const nowYear = date.format(now, "YYYY");
-  const cdateDay = date.format(cdate, "DD");
-  const cdateMonth = date.format(cdate, "MM");
-  const cdateYear = date.format(cdate, "YYYY");
-  if (nowDay == cdateDay && nowMonth == cdateMonth && nowYear == cdateYear) {
-    return "Today " + date.format(cdate, "hh:mm A");
-  }
-  if (
-    Number(nowDay) - Number(cdateDay) == 1 &&
-    nowMonth == cdateMonth &&
-    nowYear == cdateYear
-  ) {
-    return "Yesterday " + date.format(cdate, "hh:mm A");
-  }
-  return date.format(cdate, "DD MMM hh:mm A");
-};
+import { convertMongoDate } from "../../utils/mongoDateConverter";
 const TransactionListElement = ({
   orderID,
   status,
@@ -64,23 +43,30 @@ const Main = styled.div`
   padding: 14px 12px;
   width: 100%;
   font-size: 14px;
+  box-sizing: border-box;
+  height: 3rem;
 `;
 const OrderID = styled.div`
   font-weight: 500;
   color: #146eb4;
+  padding: 0 10px;
 `;
 const Status = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
+  padding: 0 10px;
 `;
 const TransactionID = styled.div`
   color: #4d4d4d;
+  padding: 0 10px;
 `;
 const Date = styled.div`
   color: #4d4d4d;
+  padding: 0 10px;
 `;
 const OrderAmount = styled.div`
+  padding: 0 10px;
   text-align: right;
   color: #1a181e;
 `;

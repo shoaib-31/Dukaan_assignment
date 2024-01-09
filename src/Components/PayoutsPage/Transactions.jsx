@@ -5,6 +5,8 @@ import { BsDownload } from "react-icons/bs";
 import TransactionListElement from "./TransactionListElement";
 import { Payouts, Refunds } from "../../userInfo";
 import { useEffect, useState } from "react";
+import { jsPDF } from "jspdf";
+import "jspdf-autotable";
 import debounce from "lodash/debounce";
 
 const Transactions = ({ time, transactionType }) => {
@@ -60,6 +62,31 @@ const Transactions = ({ time, transactionType }) => {
 
     setSortedTransactions(filteredAndSorted);
   };
+  const handleDownload = () => {
+    const doc = new jsPDF();
+    const columns = [
+      "Order ID",
+      "Status",
+      "Transaction ID",
+      "Date",
+      "Order Amount",
+    ];
+
+    const rows = sortedTransactions.map((transaction) => [
+      transaction.orderID,
+      transaction.status,
+      transaction.transactionID,
+      transaction.date,
+      transaction.orderAmount,
+    ]);
+
+    doc.autoTable({
+      head: [columns],
+      body: rows,
+    });
+
+    doc.save(`${transactionType}_${time}.pdf`);
+  };
 
   useEffect(() => {
     handleSearch();
@@ -100,7 +127,7 @@ const Transactions = ({ time, transactionType }) => {
           >
             Sort <TbArrowsDownUp />
           </Sort>
-          <Sort>
+          <Sort onClick={handleDownload}>
             <BsDownload style={{ width: "20px", height: "20px" }} />
           </Sort>
         </SortNDownload>
@@ -112,18 +139,25 @@ const Transactions = ({ time, transactionType }) => {
         <span>
           {transactionType === "Payouts" ? "Transaction" : "Refund"} Date
         </span>
-        <span style={{ textAlign: "right" }}>Order amount</span>
+        <span style={{ textAlign: "right", padding: "0 10px" }}>
+          Order amount
+        </span>
       </TransactionTableHead>
       {sortedTransactions.map((payout, index) => {
         return (
-          <TransactionListElement
-            key={index}
-            orderID={payout.orderID}
-            status={payout.status}
-            transactionID={payout.transactionID}
-            date={payout.date}
-            orderAmount={payout.orderAmount}
-          />
+          <>
+            <TransactionListElement
+              key={index}
+              orderID={payout.orderID}
+              status={payout.status}
+              transactionID={payout.transactionID}
+              date={payout.date}
+              orderAmount={payout.orderAmount}
+            />
+            {index != sortedTransactions.length - 1 && (
+              <hr style={{ width: "100%", color: "#696767" }} />
+            )}
+          </>
         );
       })}
     </Main>

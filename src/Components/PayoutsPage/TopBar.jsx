@@ -50,6 +50,7 @@ const Main = styled.div`
   justify-content: space-between;
   border-bottom: 2px solid #d9d9d9;
   background-color: white;
+  box-sizing: border-box;
 `;
 const Left = styled.div`
   display: flex;

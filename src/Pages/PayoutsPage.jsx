@@ -5,7 +5,8 @@ import { useState } from "react";
 import PayOutCard from "../Components/PayoutsPage/PayOutCard";
 import Transactions from "../Components/PayoutsPage/Transactions";
 import { Payouts, Refunds } from "../userInfo";
-
+import { user } from "../userInfo";
+import { convertMongoDate } from "../utils/mongoDateConverter";
 const PayoutsPage = () => {
   const DropdownOptions = [
     { value: "This Month", label: "This Month" },
@@ -34,22 +35,22 @@ const PayoutsPage = () => {
         <Section style={{ flexWrap: "wrap" }}>
           <PayOutCard
             name="Next Payout"
-            amount="2,312.23"
+            amount={user.nextPayout.amount}
             background="#146eb4"
-            nextDate="Today,04:00PM"
-            orders="23"
+            nextDate={convertMongoDate(user.nextPayout.date)}
+            orders={user.nextPayout.orders}
           />
           <PayOutCard
             name="Amount Pending"
             background="white"
-            amount="92,312.20"
-            orders="13"
+            amount={user.amountPending.amount}
+            orders={user.amountPending.orders}
           />
 
           <PayOutCard
             name="Amount Processed"
             background="white"
-            amount="23,92,312.19"
+            amount={user.amountProcessed}
           />
         </Section>
         <Section

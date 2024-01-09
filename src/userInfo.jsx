@@ -1,3 +1,14 @@
+export const user = {
+  name: "Nishyan",
+  credits: "222.10",
+  nextPayout: {
+    amount: "₹ 2,312.23",
+    date: "2024-01-10T00:00:00.000Z",
+    orders: 23,
+  },
+  amountPending: { amount: "₹ 9,2312.20", orders: 13 },
+  amountProcessed: "₹ 23,92,312.19",
+};
 export const Payouts = [
   {
     orderID: "281209",
